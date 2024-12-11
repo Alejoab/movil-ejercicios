@@ -1,20 +1,14 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HelloWorldController;
 use App\Http\Controllers\PetsController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/signup', [AuthController::class, 'register']);
 Route::post('/signin', [AuthController::class, 'login']);
 
-Route::get('/hello-world', function () {
-   return response()->json([
-       'message' => 'OK',
-       'data' => [
-           'name' => 'Alejandro Alvarez Botero'
-       ]
-   ]);
-});
+Route::get('/hello-world', [HelloWorldController::class, 'helloWorld'])->name('hello-world');
 
 Route::prefix('pets')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {

@@ -48,8 +48,7 @@ class PetsController extends Controller
             'type' => ['in:CAT,DOG'],
         ]);
 
-        $pet->fill($request->all());
-        $pet->save();
+        $pet->update($request->all());
 
         return response()->json([
             'message' => 'Pet updated successfully',
