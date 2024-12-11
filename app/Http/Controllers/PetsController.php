@@ -12,7 +12,7 @@ class PetsController extends Controller
     {
         return response()->json([
             'message' => 'OK',
-            'data' => Pet::query()->select(['id', 'name', 'age', 'type'])->get(),
+            'data' => Pet::query()->select(['id', 'name', 'age', 'type'])->paginate(),
         ]);
     }
 
